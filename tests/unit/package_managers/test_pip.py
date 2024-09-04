@@ -3,7 +3,7 @@ import re
 from copy import deepcopy
 from pathlib import Path
 from textwrap import dedent
-from typing import Any, Collection, Literal, Optional, Union
+from typing import Any, Collection, Dict, List, Literal, Optional, Union
 from unittest import mock
 from urllib.parse import urlparse
 
@@ -2585,7 +2585,7 @@ class TestPipRequirementsFile:
         self,
         requirement_line: str,
         requirement_options: list[str],
-        new_values: dict[str, str],
+        new_values: Union[Dict[str, str], Dict[str, List[str]]],
         expected_changes: dict[str, str],
     ) -> None:
         """Test PipRequirement.copy method."""
